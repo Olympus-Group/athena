@@ -8,6 +8,15 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "overrides": [
+        {
+            "files": ["test/**/*"],
+            "env": {
+                "jest": true,
+                "node": true
+            }
+        }
+    ],
     "rules": {
         "indent": [
             "error",
