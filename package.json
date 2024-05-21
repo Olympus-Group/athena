@@ -6,20 +6,29 @@
   "scripts": {
     "start": "nodemon",
     "lint:check": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "test:dev": " jest --watchAll --verbose",
+    "test": "jest"
   },
-  "keywords": ["json", "language", "lexer-parser"],
+  "keywords": [
+    "json",
+    "language",
+    "lexer-parser"
+  ],
   "author": "Khozhainov Mykola, Kryvokhata Mariia, Tokar Vladyslav",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^20.12.12",
+    "commander": "^12.1.0",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
-    "eslint": "^8.55.3"
+    "eslint": "^8.55.3",
+    "jest": "^29.7.0"
   }
 }
