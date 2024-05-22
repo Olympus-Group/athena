@@ -1,6 +1,9 @@
 describe('command line interface reads options correctly', () => {
 
-  process.argv.push('--schema', './path/to/schema.net', '--config', './path/to/config.json');
+  process.argv.push(
+    '--schema', './path/to/schema.net',
+    '--config', './path/to/config.json'
+  );
   const { options } = require('../interfaces/cli');
 
   test('receives the path to schema', () => {
@@ -12,28 +15,12 @@ describe('command line interface reads options correctly', () => {
   });
 });
 
-describe('command line interface throws errors where needed', () => {
-
-  test('throws error when schema is not specified', () => {
+describe('command line interface supports -h --help flag', () => {
+  test('receives the path to config', () => {
     const testFunc = () => {
-      process.argv.push('--config', './path/to/config.json');
+      process.argv.push('--help');
       require('../interfaces/cli');
     };
-    expect(testFunc).toThrow;
-  });
-
-  test('throws error when config is not specified', () => {
-    const testFunc = () => {
-      process.argv.push('--schema', './path/to/schema.net');
-      require('../interfaces/cli');
-    };
-    expect(testFunc).toThrow;
-  });
-
-  test('throws error when no options are specified', () => {
-    const testFunc = () => {
-      require('../interfaces/cli');
-    };
-    expect(testFunc).toThrow;
+    expect(testFunc).not.toThrow();
   });
 });

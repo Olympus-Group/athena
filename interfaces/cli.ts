@@ -1,16 +1,16 @@
-const pckg = require('../package.json');
-const { Command } = require('commander');
+import * as pkg from '../package.json';
+import { Command } from 'commander';
 
 const program = new Command();
 
 program
-  .name(pckg.name)
-  .version(pckg.version)
+  .name(pkg.name)
+  .version(pkg.version)
   .requiredOption('-s, --schema <file>', 'provide schema')
   .requiredOption('-c, --config <file>', 'provide config');
 
 program.parse();
 
 module.exports = {
-    options: program.opts()
-}
+  options: program.opts()
+};
