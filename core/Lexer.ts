@@ -22,7 +22,7 @@ export default class Lexer {
       const line = lines[i];
       length += line.length;
 
-      if (length > this.pos - 2) {
+      if (length > this.pos) {
         return i;
       }
     }
@@ -50,12 +50,12 @@ export default class Lexer {
       const matched = line.match(regex);
 
       if (matched && matched[0]) {
-        this.pos += matched[0].length;
-
         const result: string = trimLine(matched[0]);
         const token: Token = new Token(tokenType, result, this.pos);
 
         this.tokenList.push(token);
+
+        this.pos += matched[0].length;
 
         return true;
       }
