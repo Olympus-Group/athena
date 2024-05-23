@@ -1,0 +1,82 @@
+{
+    University:
+      isString: true
+      required: true
+    Faculty:
+      equals: "FICE"
+      notEquals: "FICT"
+    foundation:
+      optional: true
+      isNumber: true
+    web-site:
+      notBool: true
+    cool:
+      notString: true
+      notNumber: true
+      equals: ["sure"]
+    exhausting:
+      isArray: true
+      equals: [true, true, true]
+    mission:
+      notNumber: true
+    studrada:
+      required: true
+      isString: true
+      notNumber: true
+      notBool: true
+    based:
+      isArray: false
+      notEquals: false
+    legends:
+      equals: ["victor gocking", "shems"]
+      notNumber: true
+    difficulty:
+      isNumber: true
+      notEquals: 1
+      isNegative: false
+      min: 50
+    easy:
+      notString: true
+    points:
+      isNumber: false
+      notEquals: [60]
+      min: 0
+      max: 100
+    sponsors:
+      notArray: false
+      notBool: true
+      isString: false
+      required: false
+    students:
+      isArray: true
+      required: true
+      equals: ["shalena bdzhilka", "kabanchyk", "vanya123wow321"]
+    uuid:
+      required: false
+      isUUID: true
+    datetime:
+      isDatetime: true
+    languages:
+      isUUID: false
+      notEquals: ["C++", "mavka", "GoLang"]
+    divchyna:
+      required: true
+      notArray: true
+    god:
+      notArray: true
+      required: true
+      notEquals: "man"
+    efficiency:
+      isNumber: true
+    boss:
+      optional: false
+    pain:
+      isPositive: true
+      isNumber: true
+      equals: 1000
+    suicidal:
+      isBool: true
+    books:
+      isNotEmpty: true
+      equals: ["Quran", "Bible"]
+}
