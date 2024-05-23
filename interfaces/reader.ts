@@ -36,7 +36,7 @@ export function readSchema(filePath: string) {
 
 export function readService(filePath: string) {
   const resolvedPath = path.resolve(filePath);
-  validateFile(filePath, '.json');
+  validateFile(resolvedPath, '.json');
 
   try {
     const serviceData = fs.readFileSync(resolvedPath, 'utf8');
