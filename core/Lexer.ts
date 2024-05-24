@@ -2,7 +2,7 @@ import Token from './token/Token';
 import { tokenTypesList } from './token/TokenType';
 
 function trimLine(line: string) {
-  return line.replace(/^[\s\n]+|[\s\n:]+$/g, '');
+  return line.replace(/^[\s\n"]+|[\s\n:"]+$/g, '');
 }
 
 export default class Lexer {
@@ -50,6 +50,10 @@ export default class Lexer {
       const matched = line.match(regex);
 
       if (matched && matched[0]) {
+        if (!line.startsWith(matched[0])) {
+          throw new Error(`No value on position ${this.pos} specified`);
+        }
+
         const result: string = trimLine(matched[0]);
         const token: Token = new Token(tokenType, result, this.pos);
 
