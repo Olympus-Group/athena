@@ -43,11 +43,11 @@ describe('Lexer analyses schema correctly', () => {
     const tokens = lexer.analyse();
 
     expect(tokens[2].type.name).toBe('STRING');
-    expect(tokens[2].text).toBe('"Sapphire"');
+    expect(tokens[2].text).toBe('Sapphire');
     expect(tokens[2].pos).toBe(22);
 
     expect(tokens[4].type.name).toBe('STRING');
-    expect(tokens[4].text).toBe('"Am3t-hySt"');
+    expect(tokens[4].text).toBe('Am3t-hySt');
     expect(tokens[4].pos).toBe(46);
   });
 
