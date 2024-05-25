@@ -1,6 +1,9 @@
 import Token from './token/Token';
 import { tokenTypesList } from './token/TokenType';
 
+// Logging imports
+import * as ERR_MSG from './logger/errors';
+
 function trimLine(line: string) {
   return line.replace(/^[\s\n"]+|[\s\n:"]+$/g, '');
 }
@@ -12,30 +15,6 @@ export default class Lexer {
 
   constructor(code: string) {
     this.code = code;
-  }
-
-  private getCurrentLine(): number {
-    let length = 0;
-
-    const lines = this.code.split('\n');
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      length += line.length;
-
-      if (length > this.pos) {
-        return i;
-      }
-    }
-    return 0;
-  }
-
-  private trace(up: number): void {
-    const lines = this.code.split('\n');
-    for (let i = 0; i <= up; i++) {
-      const line = i !== up ? lines[i] : `\x1b[31m${lines[i]}\x1b[0m`;
-
-      console.log(`${i + 1} > ${line}`);
-    }
   }
 
   private next(): boolean {
@@ -51,7 +30,9 @@ export default class Lexer {
 
       if (matched && matched[0]) {
         if (!line.startsWith(matched[0])) {
-          throw new Error(`No value on position ${this.pos} specified`);
+          throw new Error(
+            ERR_MSG.WRONG_VALUE_ON_POSITION(this.pos)
+          );
         }
 
         const result: string = trimLine(matched[0]);
@@ -65,10 +46,7 @@ export default class Lexer {
       }
     }
 
-    const lineNumber: number = this.getCurrentLine();
-    this.trace(lineNumber);
-
-    throw new Error(`Unknown action on the line ${lineNumber + 1}`);
+    throw new Error(ERR_MSG.UNKNOWN_ACTION());
   }
 
   analyse(): Token[] {

@@ -11,11 +11,13 @@ import * as ERR_MSG from './logger/errors';
 export default class Parser {
   tokens: Token[];
   pos: number = 0;
+  log: boolean;
   current: string = '';
   fields: FieldsType = new Map<string, FieldNode>();
 
-  constructor(tokens: Token[]) {
+  constructor(tokens: Token[], log: boolean = false) {
     this.tokens = tokens;
+    this.log = log;
   }
 
   match(...expected: TokenType[]): Token | null {
@@ -46,7 +48,7 @@ export default class Parser {
     if (field) {
       this.pos++;
       this.current = field.text;
-      return new FieldNode();
+      return new FieldNode(this.log);
     }
 
     const option = this.require(tokenTypesList.OPTION);
