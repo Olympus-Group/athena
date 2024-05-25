@@ -1,7 +1,10 @@
 import { Node } from './Node';
 
+import * as NODE_ERR from '../logger/nodes/IsNumberErrors';
+import { colorify, LOG_CLR } from '../logger/colors';
+
 export default class IsNumberNode implements Node {
-  name: string = 'Is number:';
+  name: string = 'Is number';
   expected: boolean;
 
   constructor(isNumber: boolean) {
@@ -14,7 +17,10 @@ export default class IsNumberNode implements Node {
 
     if (!result) {
       throw new Error(
-        `${value} value must be${this.expected ? '' : ' not'} a number`
+        colorify(
+          NODE_ERR.MUST_BE_NUMBER(value, this.expected),
+          LOG_CLR.ERROR
+        )
       );
     }
   }
