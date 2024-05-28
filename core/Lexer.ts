@@ -30,9 +30,7 @@ export default class Lexer {
 
       if (matched && matched[0]) {
         if (!line.startsWith(matched[0])) {
-          throw new Error(
-            ERR_MSG.WRONG_VALUE_ON_POSITION(this.pos)
-          );
+          continue;
         }
 
         const result: string = trimLine(matched[0]);
@@ -46,7 +44,7 @@ export default class Lexer {
       }
     }
 
-    throw new Error(ERR_MSG.UNKNOWN_ACTION());
+    throw new Error(ERR_MSG.UNKNOWN_ACTION(this.code, this.pos));
   }
 
   analyse(): Token[] {

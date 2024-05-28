@@ -1,3 +1,5 @@
+import { REG } from '../utils/regexp';
+
 export default class TokenType {
   name: string;
   regex: string;
@@ -8,10 +10,12 @@ export default class TokenType {
   }
 }
 
+const { LINE, SPACE } = REG;
+
 export const tokenTypesList = {
-  'FIELD': new TokenType('FIELD', '^[^:\\s]+:\\n'),
-  'OPTION': new TokenType('OPTION', '^  [^:\\s]+:'),
-  'STRING': new TokenType('STRING', '\\s+".*"(\\n|$)'),
-  'NUMBER': new TokenType('NUMBER', '\\s+[0-9]+[\\.,]{0,1}[0-9]*(\\n|$)'),
-  'BOOLEAN': new TokenType('BOOLEAN', '\\s+(true|false)(\\n|$)')
+  'FIELD': new TokenType('FIELD', `^[^:${SPACE}]+:${LINE}`),
+  'OPTION': new TokenType('OPTION', `^  [^:${SPACE}]+:`),
+  'STRING': new TokenType('STRING', `${SPACE}+".*"(${LINE}|$)`),
+  'NUMBER': new TokenType('NUMBER', `${SPACE}+[0-9]+[\\.,]{0,1}[0-9]*(${LINE}|$)`),
+  'BOOLEAN': new TokenType('BOOLEAN', `${SPACE}+(true|false)(${LINE}|$)`)
 };
