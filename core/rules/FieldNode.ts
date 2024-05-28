@@ -15,19 +15,15 @@ export default class FieldNode implements Node {
     this.operations.push(operation);
   }
 
-  run(value: ValuesType) {
+  run(value: ValuesType | undefined) {
     for (const operation of this.operations) {
-      try {
-        operation.run(value);
+      operation.run(value);
 
-        if (this.log) {
-          console.log(colorify(
-            `${value} => ${operation.name}: ✅ `,
-            LOG_CLR.SUCCESS
-          ));
-        }
-      } catch (error: any) {
-        console.log(error.message);
+      if (this.log) {
+        console.log(colorify(
+          `${value} => ${operation.name}: ✅ `,
+          LOG_CLR.SUCCESS
+        ));
       }
     }
   }

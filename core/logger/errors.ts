@@ -1,4 +1,5 @@
 import { colorify, LOG_CLR } from './colors';
+import { REG } from '../utils/regexp';
 
 export function EXPECTED(pos: number, expected: string, got: string): string {
   return colorify(
@@ -14,16 +15,26 @@ export function UNKNOWN_FIELD(name: string): string {
   );
 }
 
-export function UNKNOWN_ACTION(): string {
+export function UNKNOWN_ACTION(code: string, pos: number): string {
+  const start = code.slice(pos);
+  const nextLineIndex = start.search(REG.LINE);
+
+  const index = nextLineIndex !== -1 ? nextLineIndex : code.length - 1;
+
+  const line = code.slice(pos, index);
+
   return colorify(
-    'Unknown action on the line',
+    'Unknown action on the line:\n',
     LOG_CLR.ERROR
+  ) + colorify(
+    line,
+    LOG_CLR.TRACE
   );
 }
 
-export function WRONG_VALUE_ON_POSITION(pos: number): string {
+export function UNKNOWN_OPTION(name: string) {
   return colorify(
-    `Wrong value is detected on position ${pos}`,
+    `Option ${name} is unknown`,
     LOG_CLR.ERROR
   );
 }
