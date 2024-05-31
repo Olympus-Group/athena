@@ -12,7 +12,7 @@ export default class IsNumberNode implements Node {
   }
 
   run(value: unknown): void {
-    const isNumber = !isNaN(value as number) && !isNaN(parseFloat(value as string));
+    const isNumber = typeof value === 'number' && !isNaN(value) && isFinite(value);
     const result = this.expected ? isNumber : !isNumber;
 
     if (!result) {
