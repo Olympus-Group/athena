@@ -16,7 +16,7 @@ describe('command line interface reads options correctly', () => {
 });
 
 describe('command line interface supports -h --help flag', () => {
-  test('receives the path to config', () => {
+  test('does not throw an error when flag -h --help is passed', () => {
     const testFunc = () => {
       process.argv.push('--help');
       require('../interfaces/cli');
