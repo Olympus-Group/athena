@@ -2,6 +2,9 @@
 
 Athena is a validation language for JSON files. With this validator, you can ensure your JSON files meet specific criteria, making data validation straightforward and reliable. All you need to do is to create a schema that describes the rules for validating JSON file, and you'll get the result!
 
+## Design document
+[Link to the design document](https://docs.google.com/document/d/14NSIHnOzVi11gMkvJht-KYi4todhDctJWp67O6L6G30/edit?usp=sharing)
+
 ## Getting started
 
 1. **Create a schema:** Create a schema file using Athena's syntax that describes all the rules for validating your JSON data.
