@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsDatetimeErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsDatetimeNode implements Node {
+export default class IsDatetimeNode implements RuleNode {
   name: string = 'Is datetime';
   expected: boolean;
 

@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsPositiveErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsPositiveNode implements Node {
+export default class IsPositiveNode implements RuleNode {
   name: string = 'Is positive';
   expected: boolean;
 

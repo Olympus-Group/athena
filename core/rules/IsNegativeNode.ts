@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsNegativeErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsNegativeNode implements Node {
+export default class IsNegativeNode implements RuleNode {
   name: string = 'Is negative';
   expected: boolean;
 
@@ -12,7 +12,12 @@ export default class IsNegativeNode implements Node {
   }
 
   run(value: unknown): void {
-    const isNegative = typeof value === 'number' && !isNaN(value) && isFinite(value) && Number(value) < 0;
+    const isNegative =
+      typeof value === 'number' &&
+      !isNaN(value) &&
+      isFinite(value) &&
+      Number(value) < 0;
+
     const result = this.expected ? isNegative : !isNegative;
 
     if (!result) {

@@ -1,17 +1,18 @@
 import { Node } from './Node';
 import { ValuesType } from '../utils/types';
 import { colorify, LOG_CLR } from '../logger/colors';
+import { RuleNode } from './RuleNode';
 
 export default class FieldNode implements Node {
   name: string = 'Field';
   log: boolean;
-  operations: Node[] = [];
+  operations: RuleNode[] = [];
 
   constructor(log: boolean = false) {
     this.log = log;
   }
 
-  add(operation: Node) {
+  add(operation: RuleNode) {
     this.operations.push(operation);
   }
 
@@ -21,7 +22,7 @@ export default class FieldNode implements Node {
 
       if (this.log) {
         console.log(colorify(
-          `${value} => ${operation.name}: ✅ `,
+          `${value} => ${operation.name}: ${operation.expected} ✅ `,
           LOG_CLR.SUCCESS
         ));
       }

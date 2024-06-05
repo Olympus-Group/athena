@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsNumberErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsNumberNode implements Node {
+export default class IsNumberNode implements RuleNode {
   name: string = 'Is number';
   expected: boolean;
 

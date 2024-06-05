@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsUUIDErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsUUIDNode implements Node {
+export default class IsUUIDNode implements RuleNode {
   name: string = 'Is UUID';
   expected: boolean;
 

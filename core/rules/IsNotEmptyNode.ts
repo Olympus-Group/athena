@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/IsNotEmptyErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class IsNotEmptyNode implements Node {
+export default class IsNotEmptyNode implements RuleNode {
   name: string = 'Is not empty';
   expected: boolean;
 
