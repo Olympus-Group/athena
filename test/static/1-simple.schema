@@ -1,56 +1,30 @@
 University:
   isString: true
-  required: true
 Faculty:
   equals: "FICE"
-  notEquals: "FICT"
 foundation:
-  optional: true
   isNumber: true
-web-site:
-  notBool: true
-cool:
-  notString: true
-  notNumber: true
-  notEquals: "idk"
 exhausting:
   equals: true
-mission:
-  notNumber: true
-legend:
-  optional: false
 studrada:
-  required: true
   isString: true
-  notNumber: true
-  notBool: true
-based:
-  notEquals: false
 mega-legend:
   equals: "victor gocking"
-  notNumber: true
 difficulty:
   isNumber: true
-  notEquals: 1
   isNegative: false
   min: 50
-easy:
-  notString: true
 points:
   isNumber: true
   isPositive: true
   min: 0
   max: 100
 sponsor:
-  notBool: true
   isString: true
-  required: false
 student:
   isString: true
-  required: false
 student2:
   isString: true
-  optional: true
 uuid:
   isUUID: true
 datetime:
@@ -58,16 +32,8 @@ datetime:
 language:
   isUUID: false
   isString: true
-  notEquals: "english"
-divchyna:
-  required: true
-god:
-  required: true
-  notEquals: "man"
 efficiency:
   isNumber: true
-boss:
-  optional: false
 pain:
   isPositive: true
   isNumber: true

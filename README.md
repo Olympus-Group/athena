@@ -3,7 +3,7 @@
 Athena is a validation language for JSON files. With this validator, you can ensure your JSON files meet specific criteria, making data validation straightforward and reliable. All you need to do is to create a schema that describes the rules for validating JSON file, and you'll get the result!
 
 ## Design document
-[Link to the design document](https://docs.google.com/document/d/14NSIHnOzVi11gMkvJht-KYi4todhDctJWp67O6L6G30/edit?usp=sharing)
+[Link to the design document](https://docs.google.com/document/d/1vA3uXIwm3x6j6OwcR55v-lru-ptaSPR6sMIk9auOnnk/edit?usp=sharing)
 
 ## Getting started
 
@@ -59,16 +59,6 @@ npm run test:dev
         <td><b>Description</b></td>
     </tr>
     <tr>
-        <td><code>required</code></td>
-        <td>bool</td>
-        <td>States whether the field is required</td>
-    </tr>
-    <tr>
-        <td><code>optional</code></td>
-        <td>bool</td>
-        <td>States whether the field is optional</td>
-    </tr>
-    <tr>
         <td><code>isNotEmpty</code></td>
         <td>bool</td>
         <td>Checks whether the field is not empty</td>
@@ -89,29 +79,14 @@ npm run test:dev
         <td>Checks whether the field's value is a string</td>
     </tr>
     <tr>
-        <td><code>notString</code></td>
-        <td>bool</td>
-        <td>Checks whether the field's value is not a string</td>
-    </tr>
-    <tr>
         <td><code>isNumber</code></td>
         <td>bool</td>
         <td>Checks whether the field's value is a number</td>
     </tr>
     <tr>
-        <td><code>notNumber</code></td>
-        <td>bool</td>
-        <td>Checks whether the field's value is not a number</td>
-    </tr>
-    <tr>
         <td><code>isBool</code></td>
         <td>bool</td>
         <td>Checks whether the field's value is boolean</td>
-    </tr>
-    <tr>
-        <td><code>notBool</code></td>
-        <td>bool</td>
-        <td>Checks whether the field's value is not boolean</td>
     </tr>
     <tr>
         <td><code>isUUID</code></td>
