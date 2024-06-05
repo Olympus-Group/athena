@@ -1,10 +1,10 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/MaxErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class MaxNode implements Node {
-  name: string = 'Max';
+export default class MaxNode implements RuleNode {
+  name: string = 'Less than';
   expected: number;
 
   constructor(max: number) {
@@ -12,7 +12,11 @@ export default class MaxNode implements Node {
   }
 
   run(value: unknown): void {
-    const max = typeof value === 'number' && !isNaN(value) && isFinite(value) && Number(value) <= this.expected;
+    const max =
+      typeof value === 'number' &&
+      !isNaN(value) &&
+      isFinite(value) &&
+      Number(value) <= this.expected;
 
     if (!max) {
       throw new Error(

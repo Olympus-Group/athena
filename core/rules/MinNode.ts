@@ -1,10 +1,10 @@
-import { Node } from './Node';
+import { RuleNode } from './RuleNode';
 
 import * as NODE_ERR from '../logger/nodes/MinErrors';
 import { colorify, LOG_CLR } from '../logger/colors';
 
-export default class MinNode implements Node {
-  name: string = 'Min';
+export default class MinNode implements RuleNode {
+  name: string = 'Bigger than';
   expected: number;
 
   constructor(min: number) {
@@ -12,7 +12,11 @@ export default class MinNode implements Node {
   }
 
   run(value: unknown): void {
-    const min = typeof value === 'number' && !isNaN(value) && isFinite(value) && Number(value) >= this.expected;
+    const min =
+      typeof value === 'number' &&
+      !isNaN(value) &&
+      isFinite(value) &&
+      Number(value) >= this.expected;
 
     if (!min) {
       throw new Error(

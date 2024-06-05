@@ -7,6 +7,7 @@ import { Node } from './rules/Node';
 
 // Logging imports
 import * as ERR_MSG from './logger/errors';
+import { RuleNode } from './rules/RuleNode';
 
 export default class Parser {
   tokens: Token[];
@@ -77,7 +78,7 @@ export default class Parser {
           );
         }
 
-        fieldNode.add(node);
+        fieldNode.add(node as RuleNode);
       }
     }
 
